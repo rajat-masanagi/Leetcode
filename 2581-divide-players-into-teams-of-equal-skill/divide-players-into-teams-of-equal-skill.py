@@ -1,6 +1,6 @@
 class Solution:
     def dividePlayers(self, skill: List[int]) -> int:
-        skill_per_team=int(sum(skill)/(len(skill)/2))
+        skill_per_team=sum(skill)*2//len(skill)
         skill=sorted(skill)
         r=len(skill)-1
         chem=0
