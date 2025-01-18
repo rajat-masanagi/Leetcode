@@ -4,19 +4,18 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def gcd(self,n1,n2):
-        m=min(n1,n2)
-        for i in range(m,0,-1):
-            if n1%i==0 and n2%i==0:
-                return i
     def insertGreatestCommonDivisors(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        def gcd(x,y):
+            while y:
+                x,y=y,x%y
+            return abs(x)
         cur=head
         while cur and cur.next:
             n1=cur.val
             node2=cur.next
             n2=node2.val
-            gcd=self.gcd(n1,n2)
-            newnode=ListNode(gcd)
+            g=gcd(n1,n2)
+            newnode=ListNode(g)
             newnode.next=node2
             cur.next=newnode
             cur=newnode.next
