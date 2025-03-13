@@ -3,9 +3,19 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        for i in range(len(nums)-1):
-            for j in range(i,len(nums)):
-                if nums[i]==0:
-                    nums[i]=nums[j]
-                    nums[j]=0
+        count0=0
+        for i in range(len(nums)):
+            if nums[i]==0:
+                count0+=1
+        pt=0
+        for i in range(len(nums)):
+            if nums[i]!=0:
+                nums[pt]=nums[i]
+                pt+=1
+        for i in range(len(nums)-1,len(nums)-count0-1,-1):
+            nums[i]=0
+        
+
+            
+                
         
